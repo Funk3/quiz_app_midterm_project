@@ -17,14 +17,11 @@ router.get("/new", (req, res) => {
   res.render("quiz_form");
 });
 
-router.get;
-// router.get("/quiz_attempt/:id", (req, res) => {
-//   res.render("quiz_attempt");
-// });
+router.get("/:id", (req, res) => {
+  res.render("quiz_attempt");
+});
 
 router.post("/new", (req, res) => {
-  // console.log("questions", req.body.questions);
-  // console.log("questions", req.body.questions[0].answers[0]);
   req.body.url = generateRandomString();
   const text = `INSERT INTO quizzes (title, description, url, is_private) VALUES($1, $2, $3, $4) RETURNING *`;
 

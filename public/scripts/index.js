@@ -11,6 +11,15 @@ $(() => {
     const request = $(this).find(":selected").val();
     refreshIndexQuizzes(request);
   });
+
+  $(".quiz_card").on("click", (event) => {
+    event.preventDefault();
+    $.ajax({
+      url: `/quiz/${quiz.url}`,
+      type: "get",
+      success: success,
+    });
+  });
 });
 
 /**
@@ -58,7 +67,7 @@ const createQuizCard = (quiz) => {
   console.log(quiz);
   const $quiz = $(`
   <article class="quiz_card">
-    <a href="/quizapp/quiz/${quiz.url}">
+    <a href="/quiz/${quiz.url}">
       <header>
         <h2></h2>
         <p class="author"></p>
