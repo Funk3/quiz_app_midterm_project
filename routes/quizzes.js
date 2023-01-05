@@ -18,7 +18,7 @@ router.get("/new", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  console.log("I work!");
+  res.render("quiz_attempt");
 });
 
 router.post("/new", (req, res) => {
