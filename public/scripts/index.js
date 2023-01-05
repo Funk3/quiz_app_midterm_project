@@ -58,7 +58,7 @@ const createQuizCard = (quiz) => {
   console.log(quiz);
   const $quiz = $(`
   <article class="quiz_card">
-    <a href="/quizapp/quiz/${quiz.url}">
+    <a href="/quiz/${quiz.url}">
       <header>
         <h2></h2>
         <p class="author"></p>

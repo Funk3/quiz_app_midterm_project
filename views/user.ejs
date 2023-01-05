@@ -73,17 +73,17 @@
                     <button class="attempts"> Attempts: <%= (quiz.attempts ? quiz.attempts : 0) %></button>
                     <button class="score"> Average Score: <%= (quiz.avg_score ?
                         `${Math.round(Number(quiz.avg_score)*10)/10}/${quiz.questions}`: `N/A`) %></button>
-                    <form action="/quizapp/quiz/results/<%= quiz.results_url %>" method="GET"><button
+                    <form action="/quiz/results/<%= quiz.results_url %>" method="GET"><button
                         class="results">View Detailed Results</button></form>
                   </div>
                   <div class="quiz_links">
                     <div class="quiz_link">
                       <button class=" copy_quiz_btn c_b"><span>Copy Quiz Link &nbsp;</span><input class="copy_input"
-                          value=http://localhost:8080/quizapp/quiz/<%=quiz.url %>></button>
+                          value=http://localhost:8080/quiz/<%=quiz.url %>></button>
                     </div>
                     <div class="quiz_link">
                       <button class="copy_results_btn c_b"><span>Copy Results Link &nbsp;</span><input
-                          class="copy_input" value=http://localhost:8080/quizapp/quiz/results/<%=quiz.results_url
+                          class="copy_input" value=http://localhost:8080/quiz/results/<%=quiz.results_url
                           %>></button>
                     </div>
                   </div>
@@ -128,7 +128,7 @@
                               </div>
                             </div>
                             <footer>
-                              <form action="/quizapp/quiz/<%=attempt.quiz_url %>" method="GET">
+                              <form action="/quiz/<%=attempt.quiz_url %>" method="GET">
                                 <button class="quiz_link copy_results_btn get_quiz">Attempt Again</button>
                               </form>
                             </footer>
