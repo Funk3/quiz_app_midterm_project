@@ -6,7 +6,11 @@ const pool = require("./_postgres");
 const { generateRandomString } = require("./_helpers");
 
 router.get("/list", (req, res) => {
-  console.log("I work!");
+  const text = `SELECT * from quizzes;`;
+
+  pool.query(text).then((result) => {
+    console.log(result.rows);
+  });
 });
 
 router.get("/new", (req, res) => {
