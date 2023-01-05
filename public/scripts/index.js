@@ -11,6 +11,15 @@ $(() => {
     const request = $(this).find(":selected").val();
     refreshIndexQuizzes(request);
   });
+
+  $(".quiz_card").on("click", (event) => {
+    event.preventDefault();
+    $.ajax({
+      url: `/quiz/${quiz.url}`,
+      type: "get",
+      success: success,
+    });
+  });
 });
 
 /**
