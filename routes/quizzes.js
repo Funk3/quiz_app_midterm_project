@@ -13,6 +13,10 @@ router.get("/new", (req, res) => {
   res.render("quiz_form");
 });
 
+router.get("/quiz_attempt", (req, res) => {
+  res.render("quiz_attempt");
+});
+
 router.post("/new", (req, res) => {
   // console.log("questions", req.body.questions);
   // console.log("questions", req.body.questions[0].answers[0]);
