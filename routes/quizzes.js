@@ -17,7 +17,7 @@ router.get("/new", (req, res) => {
   res.render("quiz_form");
 });
 
-router.get("/quiz/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   console.log("I work!");
 });
 
