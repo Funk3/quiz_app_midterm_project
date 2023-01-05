@@ -9,7 +9,7 @@ router.get("/list", (req, res) => {
   const text = `SELECT * from quizzes;`;
 
   pool.query(text).then((result) => {
-    console.log(result.rows);
+    res.send(result.rows);
   });
 });
 
