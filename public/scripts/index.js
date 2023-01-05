@@ -2,16 +2,15 @@ $(() => {
   //quizzes are refreshed on page load
   refreshIndexQuizzes();
   //clicking the logo will also refresh quizzes
-  $('.logo').on('click', (event) => {
+  $(".logo").on("click", (event) => {
     event.preventDefault();
     refreshIndexQuizzes();
   });
 
-  $('form select').on('change', function(){
+  $("form select").on("change", function () {
     const request = $(this).find(":selected").val();
     refreshIndexQuizzes(request);
   });
-
 });
 
 /**
@@ -20,16 +19,16 @@ $(() => {
  * @return {none} none
  */
 const refreshIndexQuizzes = (request) => {
-
   $.ajax({
-    url: '/api',
+    url: "/quiz/list",
     type: "get",
-    data: { request }
+    data: { request },
   })
-    .then(data => {
-    return data;
-  }).then(quizzes => renderQuizContainer(quizzes, $('.quiz_container')))
-    .catch(error => console.log(error));
+    .then((data) => {
+      return data;
+    })
+    .then((quizzes) => renderQuizContainer(quizzes, $(".quiz_container")))
+    .catch((error) => console.log(error));
 };
 
 /**
@@ -40,13 +39,13 @@ const refreshIndexQuizzes = (request) => {
  */
 const renderQuizContainer = (quizzes, $quizContainer) => {
   $quizContainer.empty();
-  quizzes.forEach(quiz => {
+  quizzes.forEach((quiz) => {
     if (quiz) {
       const $quiz = createQuizCard(quiz);
       $quizContainer.prepend($quiz);
     }
   });
-  $('time.timeago').timeago();
+  $("time.timeago").timeago();
 };
 
 /**
@@ -54,9 +53,9 @@ const renderQuizContainer = (quizzes, $quizContainer) => {
  * @param {Object} quiz Quiz object to be made into card
  * @return {$quiz} jQuery object representing the quiz card
  */
-const createQuizCard = quiz => {
+const createQuizCard = (quiz) => {
   const isoDate = new Date(quiz.created_at).toISOString();
-  console.log(quiz)
+  console.log(quiz);
   const $quiz = $(`
   <article class="quiz_card">
     <a href="/quizapp/quiz/${quiz.url}">
@@ -76,10 +75,9 @@ const createQuizCard = quiz => {
   </article>
   `);
 
-  $quiz.find('.quiz_description').text(quiz.description);
-  $quiz.find('h2').text(quiz.title);
-  $quiz.find('.author').text(quiz.author);
+  $quiz.find(".quiz_description").text(quiz.description);
+  $quiz.find("h2").text(quiz.title);
+  $quiz.find(".author").text(quiz.author);
 
   return $quiz;
 };
-

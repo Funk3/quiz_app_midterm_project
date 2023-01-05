@@ -6,16 +6,17 @@ const pool = require("./_postgres");
 const { generateRandomString } = require("./_helpers");
 
 router.get("/list", (req, res) => {
-  res.render("quizlist");
+  console.log("I work!");
 });
 
 router.get("/new", (req, res) => {
   res.render("quiz_form");
 });
 
-router.get("/quiz_attempt", (req, res) => {
-  res.render("quiz_attempt");
-});
+router.get;
+// router.get("/quiz_attempt/:id", (req, res) => {
+//   res.render("quiz_attempt");
+// });
 
 router.post("/new", (req, res) => {
   // console.log("questions", req.body.questions);
